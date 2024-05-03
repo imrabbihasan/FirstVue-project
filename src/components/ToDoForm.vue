@@ -5,7 +5,8 @@
         type="text"
         name="new-todo" 
         id="new-todo-input"
-        autocomplete="off">
+        autocomplete="off"
+        v-model.lazy.trim="label" />
         <button type="submit">Add</button>
     </form>
 </template>
@@ -14,8 +15,13 @@
 export default {
     methods: {
         onsubmit() {
-            console.log("Form submitted");
-        }
-    }
+            console.log("label value:", this.label);
+        },
+    },
+    data() {
+        return {
+            label: "",
+        };
+    },
 }
 </script>
