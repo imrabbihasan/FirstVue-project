@@ -1,10 +1,9 @@
 <template>
   <div id="app">
     <h1>TO-DO List</h1>
-    <to-do-form @todo-added="addToDo"></to-do-form>  // Add the to-do-form component to the template with the todo-added event listener bound to the addToDo method.
+    <to-do-form @todo-added="addToDo"></to-do-form>  
     <ul>
-      <li v-for="item in ToDoItems" :key="item.id">  // Add the li element to the template with v-for directive iterating over the ToDoItems array and binding the item.id value to the key attribute. 
-        // Add the to-do-item component to the li element with the label, done, and id props bound to the item properties.
+      <li v-for="item in ToDoItems" :key="item.id">  
         <to-do-item 
         :label="item.label"  
         :done="item.done"
@@ -15,19 +14,20 @@
 </template>
 
 <script> 
-import ToDoItem from './components/ToDoItem.vue';
-import uniqueId from "lodash.uniqueid";
-import ToDoForm from "./components/ToDoForm.vue";
+import ToDoItem from './components/ToDoItem.vue';  // Import the ToDoItem component
+import uniqueId from "lodash.uniqueid";  // Import the uniqueId function from the lodash library
+import ToDoForm from "./components/ToDoForm.vue";  // Import the ToDoForm component
 
 
 export default {
   name:"app",
+  // Register the ToDoItem and ToDoForm components in the parent component
   components: {
-    ToDoItem, ToDoForm,  // Add the ToDoItem and ToDoForm components to the components object.
+    ToDoItem, ToDoForm,  // Register the ToDoItem and ToDoForm components
   },
   data() {
     return {
-      // Add the ToDoItems array to the data object with four to-do items.
+      // Add a new ToDoItems array to the data object that contains the to-do items. 
       ToDoItems: [
         {id: uniqueId("todo-"), label: "Learn Vue.js", done: false},  
         {
@@ -42,11 +42,11 @@ export default {
   },
   // Add the addToDo method to the component that adds a new to-do item to the ToDoItems array.
   methods: {
-    addToDo(toDoLabel) {
-      this.ToDoItems.push({  // Push a new object to the ToDoItems array with a unique id, label, and done set to false.
-        id: uniqueId("todo-"),  // Generate a unique id for the new to-do item.
-        label: toDoLabel,  // Set the label property to the toDoLabel value.
-        done: false, // Set the done property to false.
+    addToDo(toDoLabel) {  // Add the addToDo method to the component that adds a new to-do item to the ToDoItems array. 
+      this.ToDoItems.push({   // Add a new to-do item object to the ToDoItems array with the provided label and default done value of false. 
+        id: uniqueId("todo-"),  // Generate a unique ID for the new to-do item using the uniqueId function. 
+        label: toDoLabel,   // Add the provided to-do label to the new to-do item object. 
+        done: false,  // Set the done property of the new to-do item object to false by default. 
       });
     }
   }
