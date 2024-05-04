@@ -9,11 +9,11 @@ export default {
     props: {
         label: {required: true, type: String},  // Add the label prop to the ToDoItem component that accepts a string value. 
         done: {default: false, type: Boolean},  // Add the done prop to the ToDoItem component that accepts a boolean value. 
-
+        id: {required: true, type: String},  // Add the id prop to the ToDoItem component that accepts a string value.
     },
     data() {
         return {
-            isDone: this.done,   // Add the isDone data property to the component that stores the value of the done prop. 
+            isDone: this.done,
         };
     },
 };
