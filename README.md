@@ -1,5 +1,5 @@
 # FirstVue-project
-Basic Vue project
+Basic Vue project | ToDO List
 
 <<<<<<< HEAD
 # firstvue-project
@@ -31,7 +31,3 @@ npm run dev
 ```sh
 npm run build
 ```
-=======
-# FirstVue-project
-Basic Vue project
->>>>>>> origin/main
